@@ -1,7 +1,7 @@
 <Project>
 <PropertyGroup>
 	<Company>CommonCore</Company>
-	<RepositoryUrl>https://github.com/bump-charge/SharedKernel</RepositoryUrl>
+	<RepositoryUrl>https://github.com/bump-charge/DataConventions</RepositoryUrl>
 	<IncludeSymbols>true</IncludeSymbols>
 	<SymbolPackageFormat>snupkg</SymbolPackageFormat>
 	<AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
