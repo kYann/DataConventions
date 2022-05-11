@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<Import Project="..\Proj\Default.proj"/>
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<PackageTags>nhibernate convention fluentnhibernate data</PackageTags>
+		<Description>Contains all default data conventions for NHibernate.</Description>
+		<Company>CommonCore</Company>
+		<Copyright />
+		<Authors>Yann ROBIN</Authors>
+		<!-- Optional: Publish the repository URL in the built .nupkg (in the NuSpec <Repository> element) -->
+		<PublishRepositoryUrl>true</PublishRepositoryUrl>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="FluentNHibernate" Version="2.1.2" />
+		<PackageReference Include="Npgsql" Version="6.0.4" />
+		<PackageReference Include="CommonCore.SharedKernel" Version="1.0.0" />
+	</ItemGroup>
+
+</Project>

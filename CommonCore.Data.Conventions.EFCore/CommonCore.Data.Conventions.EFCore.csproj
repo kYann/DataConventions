@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<Import Project="..\Proj\Default.proj"/>
+	<PropertyGroup>
+		<LangVersion>latest</LangVersion>
+		<TargetFramework>net6.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<PackageTags>efcore entity framework core convention data</PackageTags>
+		<Description>Contains all default data conventions for Entity Framework Core.</Description>
+		<Company>CommonCore</Company>
+		<Copyright />
+		<Authors>Yann ROBIN</Authors>
+		<!-- Optional: Publish the repository URL in the built .nupkg (in the NuSpec <Repository> element) -->
+		<PublishRepositoryUrl>true</PublishRepositoryUrl>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.5" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="6.0.5" />
+		<PackageReference Include="CommonCore.SharedKernel" Version="1.0.0" />
+	</ItemGroup>
+
+</Project>
