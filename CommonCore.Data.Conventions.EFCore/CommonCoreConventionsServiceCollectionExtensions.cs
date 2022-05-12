@@ -24,7 +24,7 @@ namespace CommonCore.Data.Conventions.EFCore
 		public static IServiceCollection AddEntityFrameworkCommonCoreConventions(this IServiceCollection serviceCollection, AutomappingEngine engine)
 		{
 			new EntityFrameworkServicesBuilder(serviceCollection)
-				.TryAdd<IConventionSetPlugin>(t => new CommonCoreConventionSetPlugin(engine));
+				.TryAdd<IConventionSetPlugin, CommonCoreConventionSetPlugin>(t => new CommonCoreConventionSetPlugin(engine));
 
 			return serviceCollection;
 		}
