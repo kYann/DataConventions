@@ -19,6 +19,14 @@ namespace CommonCore.Data.Conventions.EFCore
 
             return assemblies;
         }
+
+        public static AutomappingEngine? GetAutomappingEngine(this DbContextOptions options)
+        {
+            var optExt = options.FindExtension<ScannerContextOptionsExtension>();
+            var engine = optExt?.AutomappingEngine;
+
+            return engine;
+        }
     }
 
     public static class DbContextOptionsBuilderExtension
