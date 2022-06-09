@@ -37,17 +37,17 @@ namespace CommonCore.Data.Conventions.EFCore
 
     public static class DbContextOptionsBuilderExtension
     {
-        public static DbContextOptionsBuilder UseScannerAndConventions(this DbContextOptionsBuilder options, IEnumerable<Assembly> assemblies)
+        public static DbContextOptionsBuilder UseScannerAndConventions(this DbContextOptionsBuilder options, IEnumerable<Assembly> assemblies, IEnumerable<Type> ignoredTypes)
         {
-            var extension = new ScannerContextOptionsExtension(assemblies);
+            var extension = new ScannerContextOptionsExtension(assemblies, ignoredTypes);
             ((IDbContextOptionsBuilderInfrastructure)options).AddOrUpdateExtension(extension);
 
             return options;
         }
 
-        public static DbContextOptionsBuilder UseScannerAndConventions(this DbContextOptionsBuilder options, IEnumerable<Assembly> assemblies, AutomappingEngine automappingEngine)
+        public static DbContextOptionsBuilder UseScannerAndConventions(this DbContextOptionsBuilder options, IEnumerable<Assembly> assemblies, IEnumerable<Type> ignoredTypes, AutomappingEngine automappingEngine)
         {
-            var extension = new ScannerContextOptionsExtension(assemblies, automappingEngine);
+            var extension = new ScannerContextOptionsExtension(assemblies, ignoredTypes, automappingEngine);
             ((IDbContextOptionsBuilderInfrastructure)options).AddOrUpdateExtension(extension);
 
             return options;
