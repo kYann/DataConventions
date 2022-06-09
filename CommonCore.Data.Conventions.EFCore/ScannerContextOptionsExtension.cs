@@ -27,6 +27,12 @@ namespace CommonCore.Data.Conventions.EFCore
 
             return engine;
         }
+
+        public static IEnumerable<Type> GetIgnoredTypes(this DbContextOptions options)
+        {
+            var optExt = options.FindExtension<ScannerContextOptionsExtension>();
+            return optExt?.IgnoredTypes ?? Enumerable.Empty<Type>();
+        }
     }
 
     public static class DbContextOptionsBuilderExtension
@@ -50,21 +56,24 @@ namespace CommonCore.Data.Conventions.EFCore
 
     public class ScannerContextOptionsExtension : IDbContextOptionsExtension
     {
-        public ScannerContextOptionsExtension() : this(Enumerable.Empty<Assembly>())
+        public ScannerContextOptionsExtension() : this(Enumerable.Empty<Assembly>(), Enumerable.Empty<Type>())
         {
         }
 
-        public ScannerContextOptionsExtension(IEnumerable<Assembly> assemblies) : this(assemblies, new DefaultAutomappingEngine())
+        public ScannerContextOptionsExtension(IEnumerable<Assembly> assemblies, IEnumerable<Type> ignoredTypes) : this(assemblies, ignoredTypes, new DefaultAutomappingEngine())
         {
         }
 
-        public ScannerContextOptionsExtension(IEnumerable<Assembly> assemblies, AutomappingEngine automappingEngine)
+        public ScannerContextOptionsExtension(IEnumerable<Assembly> assemblies, IEnumerable<Type> ignoredTypes, AutomappingEngine automappingEngine)
         {
             this.Assemblies = assemblies;
+            IgnoredTypes = ignoredTypes;
             AutomappingEngine = automappingEngine;
         }
 
         public IEnumerable<Assembly> Assemblies { get; private set; }
+
+        public IEnumerable<Type> IgnoredTypes { get; private set; }
 
         public AutomappingEngine AutomappingEngine { get; private set; }
 
